@@ -117,6 +117,14 @@ test('bar', async t => {
 $ npm test
 ```
 
+### Watch it
+
+```console
+$ npm test -- --watch
+```
+
+AVA sports an intelligent watch mode. [Learn more in its recipe](docs/recipes/watch-mode.md).
+
 ## CLI
 
 ```console
@@ -134,6 +142,8 @@ $ ava --help
     --verbose, -v    Enable verbose output
     --no-cache       Disable the transpiler cache
     --match, -m      Only run tests with matching title (Can be repeated)',
+    --watch, -w      Re-run tests when tests and source files change
+    --source         Pattern to match source files so tests can be re-run (Can be repeated)
 
   Examples
     ava
@@ -172,6 +182,11 @@ All of the CLI options can be configured in the `ava` section of your `package.j
     "tap": true,
     "require": [
       "babel-register"
+    ],
+    "source": [
+      "**/*.js",
+      "**/*.jsx",
+      "!node_modules/**/*"
     ]
   }
 }
@@ -827,6 +842,7 @@ It's the [Andromeda galaxy](https://simple.wikipedia.org/wiki/Andromeda_galaxy).
 ## Recipes
 
 - [Code coverage](docs/recipes/code-coverage.md)
+- [Watch mode](docs/recipes/watch-mode.md)
 - [Endpoint testing](docs/recipes/endpoint-testing.md)
 - [When to use `t.plan()`](docs/recipes/when-to-use-plan.md)
 - [Browser testing](docs/recipes/browser-testing.md)
